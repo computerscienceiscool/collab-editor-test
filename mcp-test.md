@@ -1,105 +1,88 @@
-Name: mcp-450-cswg-workshop-collaborative-editor-progress
-Title: Collaborative Editor Progress
-Status: Draft -- anyone can edit. 
+# The PromiseGrid Ecosystem: How PromiseBase, PromiseGrid, SteveGT and Grid CLI Work Together
 
-See the MCP index to create or find documents, or mcp-0-readme for an overview.  
-The headers above are machine-readable; please preserve format.
+## Overview
 
+The PromiseGrid ecosystem represents a revolutionary approach to decentralized computing, combining several powerful technologies that work seamlessly together. At its core, PromiseGrid functions as a decentralized computing, communications, and governance system—essentially becoming to computation what the Internet is to communication. This document provides a technical overview of how the key components integrate.
 
+## PromiseBase: The Foundation Layer
 
-Text checkins
+PromiseBase serves as the foundational data storage and retrieval layer for the PromiseGrid ecosystem. Built on Promise Theory principles developed by Mark Burgess, it implements a capability-as-promise model for communications and security. The system enables content-addressable storage where both code and data are addressed by their content rather than location or name.
 
-Steve
-progress in promisebase refactoring
- Donaldo
-I'm recovering this week, did some catchup, getting back into projects
-Rebecca
-Returned from trip less than 24 hours ago, still a little tired. Re-adapting to elevation and dry air
-Maker Faire was the highlight of the trip
-Led a Zoom meeting at the makerspace remotely, there were 1-2 other people attending remotely, and 4 people with major roles in the meeting,  plus a few other people who had some things to say here and there, attending in person. I feel like this is a very challenging situation with a mixed meeting format, especially when leading the meeting. This was an interesting experience. We had a laptop with the main participants on the screen, one of the other people attending who had some input into a major topic, and then the laptop was rotated to show some others who had some input. I don't know entirely how this got arranged but I suspect it was as simple as informing the participants that if they wanted to be on camera they should sit in a certain area. 
-Lots of challenging situations to deal with on the trip but I feel like it was very productive,, I will probably need to travel again soon to get the project done. Dates still being finalized for the project completion.
-JJ
-Learning more about GEO.  This is pretty exciting
-Wrote a tool to scrape all web data , then used claude.ai to add tags and meta description.  I have to manually add to site.
-Updating site with meta descriptions and new tags.  Google search has been flakey for me, so also trying to update things with MIcrosoft… this has been great
-I have free advertising for my site on wordpress… most of the traffic is at 1, 3, and 5 am… i am guessing because it is free.  :\
-Wrote a kindle app… pretty cool.  Lots of red tape to get on the app store… This was intended to be a kindle app and I used dart and flutter
+Key features:
+- Distributed database architecture supporting the grid's decentralized nature
+- Asynchronous promise-based API for all data operations
+- Content verification through cryptographic hashing
+- Fault-tolerant replication across grid nodes
+- Support for partial data availability during network partitions
 
+## PromiseGrid: The Decentralized Computer
 
+PromiseGrid functions as the decentralized computational backbone, allowing execution of distributed applications across user-owned nodes. It operates as a WebAssembly System Interface (WASI) target, providing syscall-like services to WASM modules.
 
+Key capabilities:
+- Node scaling from browser tabs to phones to Raspberry Pis to data centers
+- WebAssembly virtual machine support across all major browsers
+- Decentralized kernel architecture providing WASI compatibility
+- Support for containerized applications via WASI or native container orchestration
+- Replication of code and data across the network as needed
+- Resilient operation even when parts of the grid go offline
 
+## Contributions and Grokker
 
-Plan lineup for following weeks
+This has been instrumental in developing key components of the PromiseGrid ecosystem, particularly the Grokker tool. Grokker began as a Retrieval Augmented Generation (RAG) tool for answering questions about local documents and code used in developing PromiseGrid.
 
-Go to workshop schedule & proposals (mcp-369)
+The Grokker tool:
+- Enables interactive conversations with documents and code in the PromiseGrid development process
+- Currently uses OpenAI API services but is being migrated to run natively on the grid
+- Provides LLM tooling including system message inputs, token counting, and embedding subcommands
+- Supports multi-agent collaboration between human, AI, and algorithmic agents
+- Features the unique "qi" subcommand that allows using Grokker as a chat client in editor sessions
 
-Collaborative Editor Progress 
+## Grid CLI: Command-Line Interface
 
-Storage issues on VM; quick fix increased the storage from 70 gb to 100 gb
+The Grid Command-Line Interface (CLI) provides a powerful terminal-based method for interacting with the PromiseGrid ecosystem. It enables developers to deploy, manage, and monitor applications running on the grid.
 
-Collab Editor Demo
-Code Repository: https://github.com/computerscienceiscool/collab-editor 
-Test Editor Files: https://github.com/computerscienceiscool/collab-editor-test
+Key functionalities:
+- Application deployment and management
+- Grid node registration and administration
+- Resource allocation and monitoring
+- Data management commands for content upload, download, and verification
+- Configuration management for node policies and permissions
+- Integration with common developer workflows and CI/CD pipelines
 
-Rooms are stored in the browser's IndexDB under same name as the URL
-IndexDB has access to use about half of available memory
-'Pull from Github' window
-A bit slow, unsure if its a computer specific issue 
-Keyboard shortcuts based on GDocs keybindings; ability to customize but opens a can of worms to avoid conflicts with system keybindings
-Github Settings
-You enter your Github personal access token
-Playwright is a tool to test applications for multiple users
-https://playwright.dev/
-Multi User Demo
-Steve follows the installation.md & building the WASM binary on his machine
+## Integration Points
 
+The true power of the PromiseGrid ecosystem emerges from how these components work together:
 
+1. **Data Flow Integration**: PromiseBase provides the storage layer that Grid CLI commands interact with when managing data across the network. Commands issued through the CLI trigger asynchronous promises that are resolved by the PromiseBase infrastructure.
 
-Ideas/TODOs:
-listener for keystrokes in left pane to update markdown view: done
-have user opt into keyboard shortcuts (off by default): DONE (COPY, PASTE AND CUT WORK,BUT THAT IS IT)
-Welcome screen with the shortcuts toggle on/off? Keyboard shortcuts are very helpful, unsure if average user will know to toggle them on later : THIS IS IN THE KEYBOARD SHORTCUTS MENU ITEM
-have grokker's commit code generate default commit message 
-allow user to edit message before commit
-Another option that was mentioned about the commit message was that it could say "1st commit since "<prev commit message>" -- would want to increment rather than having a growing list of recursive messages
-fix line number toggle
-installation.md file: 
-Add version numbers on Rust and WASM pack: added
-Add make build :added
-Perhaps add it to Quickstart Guide as well. Also, move quickstart guide to top and then if people have problems list things out…. :added
-Steve/JJ set up containerization and deploy to europa
-give everyone the URL
-Steve/JJ/everyone work out:
-PromiseGrid messages between browsers to sync IndexedDb (POC)
-Refactor to use PromiseBase code with IndexedDb as kv store (POC)
-Remove Yjs (replace with PromiseGrid messaging)
-Commit/pull from PG VCS
-References:
-https://github.com/stevegt/promisebase/blob/main/x/layers.md 
-https://github.com/stevegt/promisebase/blob/main/x/layers.dot 
+2. **Computational Orchestration**: When a user deploys an application via Grid CLI, the system interfaces with PromiseGrid to identify available computational resources, deploy the necessary WASM modules, and establish communication channels between components.
 
+3. **Development Enhancement**: The Grokker tool integrates with the development workflow by providing intelligent assistance for code and document analysis. Developers can query the system about implementation details, debug complex issues, and receive contextual recommendations all while working within the PromiseGrid ecosystem.
 
-What can we build now that won't feel 'useless' later
-Proof of concept, but less as throwaway code, and more as stepping stones
-We're struggling with a deploying stuff issue
-Chicken & egg problem, we're trying to build the thing that would make it easier
-JJ editor, workadventure, storm tool
-Donaldo: maybe system initiative could help in the interim?
-Possibly worth learning what they're up to
-Funny, now they've drank the AI marketing; "The AI Native Infrastructure Automation Platform - System Initiative is the best way to automate infrastructure with AI."
-https://www.systeminit.com/
-Kelsey Hightower recent post on BlueSky
-https://bsky.app/profile/kelseyhightower.com/post/3m2r23k6xkc2i 
-Adam Jacob's response (note that this is a different person than the UC Davis math prof by the same name)
-https://bsky.app/profile/adamhjk.me/post/3m2rdytysl22o 
-Steve: Unlikely worth the time integrating SysInt, takes time to learn a tool
-Avoiding third party tooling forces us to build the stuff we need to build anyway (without creating a dependency on a third party tool that has its own priorities)
-Angela heartbot demo
-Spins up a Docker container
-It only takes a couple files - doesn't need complex tooling
-More complex situations (example workadventure), still doable 
-brief plan9 analogy with promisegrid
-plan9 is bare metal
-spun off inferno
-rob pike
-promisegrid is like plan9 but 2nd level (so users don't have to install a new OS)
+4. **Security Model Cohesion**: The capability-as-promise security model is consistently implemented across all components, from PromiseBase's data protection to the Grid CLI's authentication mechanisms to PromiseGrid's execution environment isolation.
+
+## Practical Example Workflow
+
+A typical workflow might involve:
+
+1. A developer creates a new PromiseGrid application using locally stored documents and code
+2. They use Grokker with its "qi" subcommand to interactively explore and understand existing code in the ecosystem
+3. Once ready to deploy, they use Grid CLI commands to package their application
+4. The CLI interacts with PromiseBase to store the application code and data with content-addressed references
+5. PromiseGrid's decentralized kernel receives the deployment request and initiates execution across appropriate nodes
+6. Users interact with the application through browser tabs, which themselves become nodes in the grid
+7. The entire process operates without centralized hosting costs, with organizations and communities growing the grid as they join
+
+## Future Directions
+
+The PromiseGrid ecosystem continues to evolve with ongoing development efforts focused on:
+
+- Enhancing the WASI implementation for broader compatibility
+- Improving the content-addressable storage capabilities
+- Migrating Grokker's AI capabilities to run natively on the grid
+- Expanding Grid CLI functionality for enterprise deployment scenarios
+- Implementing more sophisticated consensus mechanisms for governance
+- Developing additional tools for monitoring and debugging grid applications
+
+Through these integrated technologies, PromiseGrid addresses the fundamental "tragedy of the commons" problem in corporate, community, and national governance by providing an equitable platform for collaboration and shared resource management.
