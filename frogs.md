@@ -1,12 +1,4 @@
-Frog and Frogger
-
-Frogger[a] is a 1981 action video game developed by Konami and published by Sega for arcades.[14] It was released in North America by Sega/Gremlin. The object of the game is to direct five frogs to their homes by dodging traffic on a busy road, then crossing a river by jumping on floating logs, turtles, and alligators.
-
-Frogger was positively received by critics upon its release, and is considered one of the greatest video games ever made. It was followed by numerous clones and several home-only sequels in the Frogger series. The 1982 Atari 2600 version from Parker Brothers sold four million cartridges, making it one of the best-selling Atari 2600 games. By 2005, 20 million copies of its various home video game incarnations had been sold worldwide. 
-
-
-
-
+Frog 
  
 Native **distribution** of frogs (in green)\
 
